@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.textinput {
+  @apply w-full h-14 border rounded-xl px-4 bg-gray-50 border-gray-200;
+}
+.textinput.error {
+  @apply border-red-500;
+}
