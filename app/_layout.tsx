@@ -1,6 +1,6 @@
+import "@/app/globals.css";
 import { useAuthStore } from "@/store";
 import { Stack } from "expo-router";
-import "./globals.css";
 
 export default function Layout() {
   const { session, isHydrated } = useAuthStore();
@@ -14,7 +14,7 @@ export default function Layout() {
       }}
     >
       {session ? (
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="(main)" options={{ headerShown: false }} />
       ) : (
         <Stack.Screen name="(auth)" options={{ headerShown: false }} />
       )}

@@ -1,3 +1,4 @@
+import { cn } from "@/utils";
 import { useMemo } from "react";
 import { ActivityIndicator, Text, TouchableOpacity, TouchableOpacityProps } from "react-native";
 
@@ -39,18 +40,28 @@ export const VariantButton = ({ children, className, disabled, loading, variant,
   const opacity = useMemo(() => {
     if (disabled || loading) return 'opacity-50';
     return 'opacity-100';
-  }, [disabled, loading])
+  }, [disabled, loading]);
 
   return (
     <TouchableOpacity
       {...props}
       disabled={disabled || loading}
-      className={`w-full h-14 rounded-xl justify-center items-center ${opacity} ${classNameByVariantTouchableOpacity} ${className}`}
+      className={cn(
+        'h-14 rounded-xl justify-center items-center',
+        opacity,
+        classNameByVariantTouchableOpacity,
+        className
+      )}
     >
       {loading ? (
         <ActivityIndicator size="small" color={loaderColorByVariant} />
       ) : (
-        <Text className={`${classNameByVariantText} font-bold text-lg`}>
+        <Text
+          className={cn(
+            'font-bold text-lg',
+            classNameByVariantText,
+          )}
+        >
           {children}
         </Text>
       )}

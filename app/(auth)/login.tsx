@@ -1,3 +1,4 @@
+import '@/app/globals.css';
 import { Logo } from '@/components/logo';
 import { TextInputError } from '@/components/textinput-error';
 import { VariantButton } from '@/components/variant-button';
@@ -33,6 +34,7 @@ export default function Screen() {
 
   const onSubmit = (data: LoginFormData) => {
     login({ id: '1', name: 'Coffee Lover', email: data.email });
+    router.push('/(main)/fetching-configurations');
   };
 
   return (
@@ -92,10 +94,11 @@ export default function Screen() {
         </View>
 
           <VariantButton
+            variant="filled"
             onPress={handleSubmit(onSubmit)}
             disabled={isSubmitting}
             loading={isSubmitting}
-            className="mt-8"
+            className="mt-8 w-full"
           >
             Sign In
           </VariantButton>

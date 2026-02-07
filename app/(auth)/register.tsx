@@ -118,7 +118,7 @@ export default function Screen() {
             onPress={handleSubmit(onSubmit)}
             disabled={isSubmitting}
             loading={isSubmitting}
-            className="mt-8"
+            className="mt-8 w-full"
           >
             Create Account
           </VariantButton>
